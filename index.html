@@ -1,27 +1,79 @@
 <!DOCTYPE html>
 <html>
+<script language = "javascript">
+
+  absmes = "Looking forward to a great show!";
+  blankmes="__________________________________";
+  message = "Looking forward to a great show!";
+  blen = absmes.length;
+  mes_length = absmes.length/2;
+  halflen = absmes.length/2;
+  num = 0;
+  var zero = null;
+  bnum = 0;
+  fnum = halflen;
+  stopped = false;
+function do_scroll(){
+ if (!stopped){
+   if(num < halflen) {
+   setTimeout("do_scroll()",200);
+   document.form1.mytextbox.value = absmes.substring(fnum,mes_length) +
+blankmes.substring(bnum,blen)+ absmes.substring(halflen,absmes.length);
+   num = num + 1;
+   fnum = fnum - 1;
+   bnum = bnum + 2;
+   }
+   else
+   {
+   setTimeout("do_scroll()",2200);
+   document.form1.mytextbox.value=absmes;
+       num = 0;
+       bnum = 0;
+       fnum = halflen;
+   }
+ }
+  return;
+}
+
+function stopscroll(){
+   stopped = true;
+   document.form1.mytextbox.value=absmes;
+}
+
+function startagain(){
+   stopped = false;
+   setTimeout("do_scroll()",0);
+}
+
+
+</script>
 <head>
+<link rel="stylesheet" type="text/css" href="mystyle.css">
 <title>Artists' Guild of Spartanburg Annual Juried Show</title>
 </head>
 
-<body>
-  <img src="artistsguildlogo.png" alt= "Artists' Guild of Spartanburg" height = "103" width = "327" >
-  <div>
+<body onLoad="do_scroll()">
+  <img class="logo" src="artistsguildlogo.png" alt= "Artists' Guild of Spartanburg" height = "103" width = "327" >
+
+  <div id="art">
     <img src="art1.jpg" alt="art1" height = "100" width = "100" >
     <img src="art2.jpg" alt="art1" height = "100" width = "100" >
     <img src="art3.jpg" alt="art1" height = "100" width = "100" >
   </div>
-  <h1>Artists' Guild of Spartanburg Annual Juried Show</h1>
-  <div>
-    <a href="index.html">Home</a>
-    <a href="contestants.html">Contestants</a>
-    <a href="juror.html">Juror</a>
-    <a href="Lastyearswinners.html">Last Years Winners</a>
-    <a href="about.html">About</a>
-  </div>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/sn0bDD4gXrE" frameborder="0" allowfullscreen></iframe>
 
-  <img src="sponsors.png" width="700" height="325" alt="Sponsors" usemap="#sponsormap">
+  <div class="navbar">
+    <a class="navlink" href="index.html">Home</a>
+    <a class="navlink" href="contestants.html">Contestants</a>
+    <a class="navlink" href="juror.html">Juror</a>
+    <a class="navlink" href="Lastyearswinners.html">Last Years Winners</a>
+    <a class="navlink" href="about.html">About</a>
+  </div>
+
+  <h1>Artists' Guild of Spartanburg Annual Juried Show</h1>
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/sn0bDD4gXrE" frameborder="0" allowfullscreen></iframe>
+  <h3>Sponsors</h3>
+  <img id="sponsors" src="sponsors.png" width="700" height="325" alt="Sponsors" usemap="#sponsormap">
 
 <map name="sponsormap">
   <area shape="rect" coords="58,6,482,115" href="http://www.chapmanculturalcenter.org" alt="Chapman Cultural Center">
@@ -29,6 +81,17 @@
   <area shape="circle" coords="99,242,88" href="http://www.carriagehousewines.com/" alt="Carriage House Wines">
   <area shape="rect" coords="231,240,541,326" href="http://www.berbank.com/" alt="Berbank">
 </map>
+<div id="scrollbar">
+<table border="1"><tr><td align ="center" colspan="2"><form
+name="form1">
+<input type="text" name ="mytextbox" size="35"></form></td></tr>
+<tr><form name="form2"><td align="center"><input type="button"
+name="but1" onClick="stopscroll()" value="Stop Scrolling"></td><td
+align="center"><input type="button" onClick="startagain()" value="Start
+Again"></td></form></tr>
+</table>
+</center><br><br><br><br>
+</div>
 </body>
 <footer>
   <div>200 E. St. John Street Spartanburg, SC 29306 864.764.9568</div>

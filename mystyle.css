@@ -1,0 +1,54 @@
+body {
+  width: 80%;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.logo {
+  float: left;
+  padding-right: 40%;
+}
+#art {
+  padding-left: 40%
+}
+.navlink{
+  padding: 20px;
+}
+.navbar {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+h1 {
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+
+iframe {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+#sponsors{
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+}
+h3 {
+  width: 10%;
+  margin-left: auto;
+  margin-right: auto;
+}
+#scrollbar {
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+}
+footer {
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%
+}
